@@ -64,10 +64,6 @@ class ELLTable(db.Model):
 def index():
     return render_template('index.html')
 
-# include other views that return html here:
-@app.route('/other')
-def other():
-    return render_template('other.html')
 
 # set up the following views to allow users to make
 # GET requests to get your data in json
@@ -77,23 +73,30 @@ def other():
 # change this to return your data
 @app.route('/api', methods=['GET'])
 def get_data():
-    table = DBTable.query.all()
-    d = {row.column_1:row.column_2 for row in table}
+    table = ELLTable.query.all()
+    d=[]
+    for row in table:
+        row_as_dict={ 
+            "location":row.location,
+            "number_2000":row.number_2000,
+            "number_2005":row.number_2005,
+            "number_2015":row.number_2015,
+            "number_2015":row.number_2015,
+            "number_2016":row.number_2016,
+            "number_2010":row.number_2010,
+            "number_2017":row.number_2017,
+            "percent_2000":row.percent_2000,
+            "percent_2005":row.percent_2005,
+            "percent_2010":row.percent_2010,
+            "number_2014":row.number_2014,
+            "percent_2014":row.percent_2014,
+            "percent_2015":row.percent_2015,
+            "percent_2016":row.percent_2016,
+            "percent_2017":row.percent_2017 
+        }
+        d.append(row_as_dict)
     return jsonify(d)
 
-# change this to allow users to add/update data
-@app.route('/api', methods=['POST'])
-def add_data():
-    for k,v in request.args.items():
-        pass
-    return jsonify({})
-        
-# change this to allow the deletion of data
-@app.route('/api', methods=['DELETE'])
-def delete_data():
-    for k,v in request.args.items():
-        pass
-    return jsonify({})
 
 #
 # CODE TO BE EXECUTED WHEN RAN AS SCRIPT
