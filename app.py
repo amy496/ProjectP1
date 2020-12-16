@@ -60,9 +60,12 @@ class ELLTable(db.Model):
 # information about your data
 # information about how to access your data
 # you can choose to output data on this page
+
 @app.route('/', methods=['GET'])
 def index():
-    return render_template('index.html')
+    table = ELLTable.query.all()
+    d=[]
+    return render_template('index.html', data=d)
 
 
 # set up the following views to allow users to make

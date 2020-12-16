@@ -8,8 +8,50 @@
   <body>
       <h1>Phase 1 Project Details</h1>
       <h2>For my project, I scraped data pertaining to English Language Leaners in public schools across the United States. The data highlights the increasing number of English Language Learners in the US public school system over the past two decades.</h2>
-        
          <h3>Source: National Center for Education Statistics: https://nces.ed.gov/</h3>
       <a href="{{ url_for('get_data')}}">view api here</a>
+        <table>
+            <tr>
+                  <th>location</th> 
+                  <th>number_2000</th>
+                  <th>number_2000</th>
+                  <td>number_2005</th>
+                  <th>number_2015</th>
+                  <th>number_2016</th>
+                  <th>number_2010</th>
+                  <th>number_2017</th>
+                  <th>percent_2000</th>
+                  <th>percent_2005</th>
+                  <th>percent_2010</th>
+                  <th>number_2014</th>
+                  <th>percent_2014</th>
+                  <th>percent_2015</th>
+                  <th>percent_2016</th>
+                  <th>percent_2017</th>
+           </tr>
+            {% for row in data %}
+             <tr>
+                  <td>{{row.row.number_2000}}</td>
+                  <td>{{row.number_2005}}</td>
+                  <td>{{row.}}</td>
+                  <td>{{row.number_2000}}</td>
+                  <td>{{row.number_2005}}</td>
+                  <td>{{row.number_2015}}</td>
+                  <td>{{row.number_2016}}</td>
+                  <td>{{row.number_2010}}</td>
+                  <td>{{row.number_2017}}</td>
+                  <td>{{row.percent_2000}}</td>
+                  <td>{{row.percent_2005}}</td>
+                  <td>{{row.percent_2010}}</td>
+                  <td>{{row.number_2014}}</td>
+                  <td>{{row.percent_2014}}</td>
+                  <td>{{row.percent_2015}}</td>
+                  <td>{{row.percent_201 }}</td>
+                  <td>{{row.percent_2017}}</td>
+             <tr>
+    {% end for %}
+<table>
   </body>
 </html>
+
+
