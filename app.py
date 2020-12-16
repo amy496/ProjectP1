@@ -64,8 +64,7 @@ class ELLTable(db.Model):
 @app.route('/', methods=['GET'])
 def index():
     table = ELLTable.query.all()
-    d=[]
-    return render_template('index.html', data=d)
+    return render_template('index.html', data=table)
 
 
 # set up the following views to allow users to make
